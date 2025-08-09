@@ -4,6 +4,7 @@
  Questão 01b) 
 */
 
+/*
 module Guia_0101;
 // define data
  integer x = 13; // decimal
@@ -18,3 +19,4 @@ module Guia_0101;
  $display ( "b = %8b", b );
  end // main
 endmodule // Guia_0101
+*/
