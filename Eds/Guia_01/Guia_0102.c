@@ -1,3 +1,9 @@
+/*
+ Guia_0102.v
+ 842527 - Gabriel Ferreira Pereira
+ Questão 02c) 
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
