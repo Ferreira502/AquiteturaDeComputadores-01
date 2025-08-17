@@ -1,6 +1,8 @@
 /* 
   Guia_0205.v 
+     842527 - Gabriel Ferreira Pereira
 */ 
+
 module Guia_0205; 
 // define data 
    reg [7:0] a = 8'b000_1010 ; // binary 

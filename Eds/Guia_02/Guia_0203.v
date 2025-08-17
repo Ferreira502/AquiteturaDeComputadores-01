@@ -1,7 +1,8 @@
 /* 
   Guia_0203.v 
-     999999 - Xxx Yyy Zzz 
+     842527 - Gabriel Ferreira Pereira
 */ 
+
 module Guia_0203; 
 // define data 
    real      x   = 0.625;                 // decimal 

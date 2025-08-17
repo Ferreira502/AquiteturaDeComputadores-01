@@ -1,14 +1,15 @@
 /* 
-  Guia_0203.java 
+  Guia_0204.java 
      842527 - Gabriel Ferreira Pereira
 */ 
 
 
 import java.util.Scanner;
 
-public class Guia_0203 
+public class Guia_0204 
 {
-    public static double bin2double(String x) 
+
+    public static double base2double(String x, int base1) 
     {
         String[] partes = x.split("\\.");
         String parteInteira = partes[0];
@@ -23,25 +24,37 @@ public class Guia_0203
         for (int i = 0; i < parteInteira.length(); i++) 
         {
             char c = parteInteira.charAt(parteInteira.length() - 1 - i);
-            if (c == '1') 
+            int valor;
+            if (c >= '0' && c <= '9') 
             {
-                resultado += Math.pow(2, i);
+                valor = c - '0';
+            } 
+            else 
+            {
+                valor = 10 + (c - 'A');
             }
+            resultado += valor * Math.pow(base1, i);
         }
 
         for (int i = 0; i < parteFracionaria.length(); i++) 
         {
             char c = parteFracionaria.charAt(i);
-            if (c == '1') 
+            int valor;
+            if (c >= '0' && c <= '9') 
             {
-                resultado += Math.pow(2, -(i + 1));
+                valor = c - '0';
+            } 
+            else 
+            {
+                valor = 10 + (c - 'A');
             }
+            resultado += valor * Math.pow(base1, -(i + 1));
         }
 
         return resultado;
     }
 
-    public static String double2base(double valor, int base) 
+    public static String double2base(double valor, int base2) 
     {
         long parteInteira = (long) valor;
         double parteFracionaria = valor - parteInteira;
@@ -56,7 +69,7 @@ public class Guia_0203
         {
             while (parteInteira > 0) 
             {
-                int resto = (int) (parteInteira % base);
+                int resto = (int) (parteInteira % base2);
                 if (resto < 10) 
                 {
                     sb.insert(0, resto);
@@ -65,7 +78,7 @@ public class Guia_0203
                 {
                     sb.insert(0, (char) ('A' + resto - 10));
                 }
-                parteInteira /= base;
+                parteInteira /= base2;
             }
         }
 
@@ -75,7 +88,7 @@ public class Guia_0203
             int count = 0;
             while (parteFracionaria > 0 && count < 10) 
             {
-                parteFracionaria *= base;
+                parteFracionaria *= base2;
                 int digito = (int) parteFracionaria;
                 if (digito < 10) 
                 {
@@ -93,24 +106,27 @@ public class Guia_0203
         return sb.toString();
     }
 
-    public static String dbin2base(int base, String binario)
+    public static String dbase2base(int base1, int base2, String x) 
     {
-        double valorDecimal = bin2double(binario);
-        return double2base(valorDecimal, base);
+        double valorDecimal = base2double(x, base1);
+        return double2base(valorDecimal, base2);
     }
 
     public static void main(String[] args) 
     {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Digite um numero binario: ");
-        String numeroBinario = sc.next();
+        System.out.print("Digite o numero: ");
+        String numero = sc.next();
+
+        System.out.print("Digite a base de origem: ");
+        int base1 = sc.nextInt();
 
         System.out.print("Digite a base de destino: ");
-        int base = sc.nextInt();
+        int base2 = sc.nextInt();
 
-        String resultado = dbin2base(base, numeroBinario);
-        System.out.println(numeroBinario + " (binario) = " + resultado + " (base " + base + ")");
+        String resultado = dbase2base(base1, base2, numero);
+        System.out.println(numero + " (base " + base1 + ") = " + resultado + " (base " + base2 + ")");
 
         sc.close();
     }

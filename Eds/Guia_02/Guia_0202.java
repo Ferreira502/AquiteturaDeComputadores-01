@@ -1,3 +1,9 @@
+/* 
+  Guia_0202.java 
+     842527 - Gabriel Ferreira Pereira
+*/ 
+
+
 import java.util.Scanner;
 
 public class Guia_0202 
