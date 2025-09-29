@@ -101,15 +101,12 @@ module test_f11;
     wire s_xnor;
     wire z;
 
-    // instanciar unidade lógica
     f11 LU (s_not, s_and, s_nand, s_or, s_nor, s_xor, s_xnor, x, y, neg_b);
 
-    // dados para o mux8
     wire [7:0] data;
     assign data = {s_xnor, s_xor, s_nor, s_or, s_nand, s_and, s_not, 1'b0}; 
     // 7 operações + 1 filler (não usado)
 
-    // mux8 para escolher saída
     mux8 MUX_FINAL (z, data, sel);
 
     initial

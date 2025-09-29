@@ -16,30 +16,23 @@ module comp4_mag (
     wire nA3, nA2, nA1, nA0;
     wire nB3, nB2, nB1, nB0;
 
-    // negar bits de a e b
     not NOTA3(nA3, a[3]); not NOTA2(nA2, a[2]); not NOTA1(nA1, a[1]); not NOTA0(nA0, a[0]);
     not NOTB3(nB3, b[3]); not NOTB2(nB2, b[2]); not NOTB1(nB1, b[1]); not NOTB0(nB0, b[0]);
 
-    // calcular maior
     wire m3, m2, m1, m0;
 
-    // bit mais significativo
     and AND3(m3, a[3], nB3);
-    // segundo bit se os anteriores iguais
     wire eq3; and AND_EQ3(eq3, nA3, nB3);
     and AND2(m2, a[2], nB2, eq3);
-    // terceiro bit
     wire eq2; and AND_EQ2(eq2, eq3, nA2, nB2);
     and AND1(m1, a[1], nB1, eq2);
-    // quarto bit
     wire eq1; and AND_EQ1(eq1, eq2, nA1, nB1);
     and AND0(m0, a[0], nB0, eq1);
 
     or OR_MAIOR(maior, m3, m2, m1, m0);
 
-    // menor = b > a
     wire n_maior; not NOT_M(n_maior, maior);
-    and AND_MENOR(menor, n_maior, 1'b1); // menor = ~maior se a != b
+    and AND_MENOR(menor, n_maior, 1'b1); 
 endmodule
 
 // ------------------------- 
@@ -64,15 +57,13 @@ endmodule
 module test_comp4_mag;
     reg [3:0] x;
     reg [3:0] y;
-    reg sel; // 0-maior, 1-menor
+    reg sel; 
     wire maior;
     wire menor;
     wire z;
 
-    // instancia comparador
     comp4_mag COMP (maior, menor, x, y);
 
-    // mux para saída única
     mux2 MUX1 (z, maior, menor, sel);
 
     initial

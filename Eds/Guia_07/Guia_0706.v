@@ -15,16 +15,13 @@ module comp4 (
 );
     wire w0, w1, w2, w3;
 
-    // comparar cada bit
     xnor X0 (w0, a[0], b[0]);
     xnor X1 (w1, a[1], b[1]);
     xnor X2 (w2, a[2], b[2]);
     xnor X3 (w3, a[3], b[3]);
 
-    // igualdade = todos os bits iguais
     and AND_EQ (eq, w0, w1, w2, w3);
 
-    // desigualdade = negação da igualdade
     not NOT_NEQ (neq, eq);
 
 endmodule // comp4
@@ -56,10 +53,8 @@ module test_comp4;
     wire neq;
     wire z;
 
-    // instancia comparador
     comp4 COM (eq, neq, x, y);
 
-    // mux para escolher saída única
     mux2 MUX1 (z, eq, neq, sel);
 
     initial

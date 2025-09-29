@@ -16,7 +16,6 @@ module f9 (
     input  b
 );
 
-    // portas nativas
     and  AND1 (s_and,  a, b);
     nand NAND1(s_nand, a, b);
     or   OR1  (s_or,   a, b);
@@ -49,40 +48,34 @@ module test_f9;
     // definir dados
     reg  x;
     reg  y;
-    reg  sel_op;   // seleção da porta (0-NAND/NOR ; 1-AND/OR)
-    reg  sel_grp;  // seleção do grupo (0-AND/NAND ; 1-OR/NOR)
+    reg  sel_op;  
+    reg  sel_grp;  
 
     wire w_and;
     wire w_nand;
     wire w_or;
     wire w_nor;
 
-    wire z1;   // saída do grupo AND/NAND
-    wire z2;   // saída do grupo OR/NOR
-    wire z;    // saída final
+    wire z1;  
+    wire z2; 
+    wire z;   
 
-    // instancia unidade lógica
     f9 modulo (w_and, w_nand, w_or, w_nor, x, y);
 
-    // primeiro nível: escolher dentro de cada grupo
-    mux MUX1 (z1, w_nand, w_and, sel_op); // grupo AND/NAND
-    mux MUX2 (z2, w_nor,  w_or,  sel_op); // grupo OR/NOR
+    mux MUX1 (z1, w_nand, w_and, sel_op); 
+    mux MUX2 (z2, w_nor,  w_or,  sel_op); 
 
-    // segundo nível: escolher o grupo
     mux MUX3 (z, z1, z2, sel_grp);
 
-    // parte principal
     initial
     begin : main
         $display("Guia_0703 - Gabriel Ferreira Pereira - 842527");
         $display("Test LU's module (AND, NAND, OR, NOR)");
         $display("x y sel_op sel_grp | AND NAND OR NOR | z");
 
-        // monitor
         $monitor("%b %b    %b      %b   |  %b    %b   %b   %b  | %b",
                   x, y, sel_op, sel_grp, w_and, w_nand, w_or, w_nor, z);
 
-        // aplicar estímulos
         x=0; y=0; sel_op=0; sel_grp=0; #1;
         x=0; y=1; #1;
         x=1; y=0; #1;

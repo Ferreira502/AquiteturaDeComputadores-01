@@ -13,8 +13,6 @@ module f7 (
     input  a, 
     input  b 
 ); 
-
-    // descrever por portas 
     and  AND1  (s_and,  a, b); 
     nand NAND1 (s_nand, a, b); 
 
@@ -30,12 +28,10 @@ module mux (
     input  select 
 ); 
 
-    // definir dados locais 
     wire not_select; 
     wire sa; 
     wire sb; 
 
-    // descrever por portas 
     not NOT1 ( not_select, select ); 
     and AND1 ( sa, a, not_select ); 
     and AND2 ( sb, b,    select  ); 
@@ -68,7 +64,6 @@ module test_f7;
         $display("Test LU's module (AND / NAND)"); 
         $display("   x   y   sel  | AND  NAND  Z"); 
 
-        // aplicar estímulos
         x = 1'b0; y = 1'b0; sel = 1'b0; 
         #1 $monitor("%4b %4b %4b  |  %4b   %4b   %4b", x, y, sel, w_and, w_nand, z); 
         

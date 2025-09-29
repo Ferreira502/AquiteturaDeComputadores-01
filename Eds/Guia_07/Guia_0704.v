@@ -16,7 +16,6 @@ module f10 (
     input  b
 );
 
-    // portas nativas
     or   OR1  (s_or,   a, b);
     nor  NOR1 (s_nor,  a, b);
     xor  XOR1 (s_xor,  a, b);
@@ -55,11 +54,9 @@ module mux4 (
 );
     wire s0, s1;
 
-    // primeira camada
-    mux2 M1 (s0, a, b, select[0]); // escolhe entre a e b
-    mux2 M2 (s1, c, d, select[0]); // escolhe entre c e d
+    mux2 M1 (s0, a, b, select[0]);
+    mux2 M2 (s1, c, d, select[0]); 
 
-    // segunda camada
     mux2 M3 (s, s0, s1, select[1]);
 endmodule // mux4
 
@@ -70,7 +67,7 @@ module test_f10;
     // definir dados
     reg  x;
     reg  y;
-    reg  [1:0] sel; // seletor 2 bits
+    reg  [1:0] sel; 
 
     wire w_or;
     wire w_nor;
@@ -78,13 +75,10 @@ module test_f10;
     wire w_xnor;
     wire z;
 
-    // instancia unidade lógica
     f10 modulo (w_or, w_nor, w_xor, w_xnor, x, y);
 
-    // mux4 para escolher uma das 4 saídas
     mux4 MUX1 (z, w_nor, w_or, w_xor, w_xnor, sel);
 
-    // parte principal
     initial
     begin : main
         $display("Guia_0704 - Gabriel Ferreira Pereira - 842527");
@@ -94,5 +88,4 @@ module test_f10;
         $monitor("%b %b  %2b |  %b   %b   %b    %b  | %b",
                   x, y, sel, w_or, w_nor, w_xor, w_xnor, z);
 
-        // aplicar estímulos
         x=0; y=0; sel=2'b00;

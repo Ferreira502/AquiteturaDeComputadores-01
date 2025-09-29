@@ -6,7 +6,7 @@ module s_module_with_wires(
 );
   wire w5, w3, w6, w4, w10, w11, w7b, w2;
 
-  assign w5  = (~x) | (~y);       // OR of inverted x,y
+  assign w5  = (~x) | (~y);       
   assign w3  = ~w5;               // = x & y
   assign w6  = y & z;
   assign w4  = w3 & (~w6);        // = x*y*z'

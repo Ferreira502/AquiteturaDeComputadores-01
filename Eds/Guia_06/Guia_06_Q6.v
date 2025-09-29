@@ -12,5 +12,5 @@ module s_pois(
   assign m2 = y | z;              // (Y + Z)
   assign m3 = (~w) | (~x) | (~z); // (W' + X' + Z')
 
-  assign s = m1 & m2 & m3;       // product of sums
+  assign s = m1 & m2 & m3;       
 endmodule
