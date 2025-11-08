@@ -111,4 +111,3 @@ ab\c   0  1
 10     0  0
 
 SoP simplificada: Tb = a b c  +  c a' b'
-
