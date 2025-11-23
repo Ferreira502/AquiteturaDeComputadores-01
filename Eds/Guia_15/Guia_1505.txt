@@ -1,6 +1,6 @@
 // Guia_1505.txt
-// Cálculo: dado03 = dado01 * 4 + dado02 / 2
-// Uso apenas de somas e comparações (sem shifts)
+// Calculo: dado03 = dado01 * 4 + dado02 / 2
+// Uso apenas de somas e comparacoes (sem shifts)
 
         ---------------------------------------
         ; 1) Calcular dado01 * 4
@@ -13,12 +13,12 @@
         ADD  B             ; A = dado01 * 3
         ADD  B             ; A = dado01 * 4
 
-        ; A contém 4*dado01 → guardar parcial
+        ; A contem 4*dado01 → guardar parcial
         MOV  D, A          ; D = parcial
 
 
         ---------------------------------------
-        ; 2) Calcular dado02 / 2 (divisão por subtrações)
+        ; 2) Calcular dado02 / 2 (divisao por subtracoes)
 
         INX H              ; agora HL → dado02
         MOV  B, M          ; B = dado02
@@ -26,8 +26,8 @@
         MVI  E, 00h        ; E = resultado = 0
 
 div_loop:
-        CPI  02h           ; A não é usado aqui → devemos usar B
-                          ; então compare B com 2:
+        CPI  02h           ; A nao e usado aqui → devemos usar B
+                          ; entao compare B com 2:
         MOV  A, B
         CPI  02h           ; se B < 2, parar
         JC   fim_div
@@ -39,7 +39,7 @@ div_loop:
         JMP  div_loop
 
 fim_div:
-        ; E contém dado02/2
+        ; E contem dado02/2
 
 
         ---------------------------------------
@@ -58,7 +58,7 @@ fim_div:
 
 
 ---------------------------------------
-; Área de dados (exemplo)
+; area de dados (exemplo)
 
 dado01:  03h     ; exemplo: 3  → 3*4 = 12
 dado02:  08h     ; exemplo: 8  → 8/2 = 4

@@ -1,5 +1,5 @@
 // Guia_1506.txt
-// Cálculo: dado03 = 3 * (dado01 - 4 * dado02)
+// Calculo: dado03 = 3 * (dado01 - 4 * dado02)
 // Usando apenas somas e subtrações (8 bits)
 
         ---------------------------------------
@@ -26,7 +26,7 @@
         MOV  B, D          ; B = 4*dado02
         SUB  B             ; A = dado01 - 4*dado02
 
-        MOV  E, A          ; E = valor do parênteses
+        MOV  E, A          ; E = valor do parenteses
 
 
         ---------------------------------------
@@ -45,7 +45,7 @@
 
 
 ---------------------------------------
-; Área de dados (exemplo)
+; Area de dados (exemplo)
 
 dado01:  20h      ; exemplo
 dado02:  03h      ; exemplo

@@ -1,18 +1,18 @@
 // Guia_1507.txt
-// Operação: dado03 = dado01 % 2 + dado02 / 4
-// Usando apenas somas, subtrações e comparações (sem shifts)
+// Operacao: dado03 = dado01 % 2 + dado02 / 4
+// Usando apenas somas, subtracoes e comparacoes (sem shifts)
 
         ;---------------------------------------
-        ; 1) Calcular dado01 % 2   (resto da divisão por 2)
+        ; 1) Calcular dado01 % 2   (resto da divisao por 2)
 
         LXI  H, dado01
         MOV  A, M          ; A = dado01
 
-        MVI  B, 00h        ; B = resto (será guardado)
+        MVI  B, 00h        ; B = resto (sera guardado)
 
 mod2_loop:
         CPI 02h            ; A < 2 ?
-        JC  mod2_fim       ; sim → resto é o valor em A
+        JC  mod2_fim       ; sim → resto e o valor em A
 
         SUI 02h            ; A = A - 2
         JMP mod2_loop
@@ -22,7 +22,7 @@ mod2_fim:
 
 
         ;---------------------------------------
-        ; 2) Calcular dado02 / 4   (divisão por subtração)
+        ; 2) Calcular dado02 / 4   (divisao por subtracao)
 
         INX H              ; HL → dado02
         MOV A, M           ; A = dado02
@@ -38,7 +38,7 @@ div4_loop:
         JMP div4_loop
 
 div4_fim:
-        ; C contém (dado02 / 4)
+        ; C contem (dado02 / 4)
 
 
         ;---------------------------------------
@@ -56,7 +56,7 @@ div4_fim:
 
 
 ;---------------------------------------
-; Área de dados (exemplo)
+; area de dados (exemplo)
 
 dado01:  05h     ; exemplo: 5 → 5 % 2 = 1
 dado02:  0Ch     ; exemplo: 12 → 12/4 = 3

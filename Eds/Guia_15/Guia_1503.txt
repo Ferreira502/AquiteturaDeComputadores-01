@@ -1,5 +1,5 @@
 // Guia_1503.txt
-// Operação BCD com 8 bits:
+// Operacao BCD com 8 bits:
 // dado05 = dado01 - dado02 - dado03 - dado04
 // Usando ajuste BCD com DAA
 
@@ -11,14 +11,14 @@
 
         INX  H             ; HL -> dado02
         SUB  M             ; A = A - dado02
-        DAA                ; Ajuste BCD após subtração
+        DAA                ; Ajuste BCD apos subtracao
 
         ---------------------------------------
         ; Subtrai dado03
 
         INX  H             ; HL -> dado03
         SUB  M             ; A = A - dado03
-        DAA                ; Ajuste BCD após subtração
+        DAA                ; Ajuste BCD apos subtracao
 
         ---------------------------------------
         ; Subtrai dado04

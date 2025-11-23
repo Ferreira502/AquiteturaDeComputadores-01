@@ -1,5 +1,5 @@
 // Guia_1502.txt
-// Operação com 16 bits: dado05 = dado01 - dado02 + dado03 - dado04
+// Operacao com 16 bits: dado05 = dado01 - dado02 + dado03 - dado04
 // Dados armazenados em formato:  LowByte / HighByte
 
         ----------------------------------------------------
@@ -64,7 +64,7 @@
 
 
 ----------------------------------------------------
-; Área de dados - valores de exemplo
+; Area de dados - valores de exemplo
 
 dado01:  34h 12h     ; 0x1234
 dado02:  10h 00h     ; 0x0010

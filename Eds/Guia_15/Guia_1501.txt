@@ -1,14 +1,14 @@
 // Guia_1501.txt
-// Operação: dado04 = dado01 - dado02 - dado03
+// Operacao: dado04 = dado01 - dado02 - dado03
 // Dados de 8 bits
 
-        LXI   H, dado01   ; HL <- endereço de dado01
+        LXI   H, dado01   ; HL <- endereco de dado01
         MOV   A, M        ; A <- MEM[dado01]
 
-        INX   H           ; HL <- endereço de dado02
+        INX   H           ; HL <- endereco de dado02
         SUB   M           ; A <- A - MEM[dado02]
 
-        INX   H           ; HL <- endereço de dado03
+        INX   H           ; HL <- endereco de dado03
         SUB   M           ; A <- A - MEM[dado03]
 
         STA   dado04      ; MEM[dado04] <- A   (salva o resultado)

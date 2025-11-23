@@ -1,5 +1,5 @@
 // Guia_1504.txt
-// Cálculo: dado03 = 2 * dado01 - 3 * dado02
+// Calculo: dado03 = 2 * dado01 - 3 * dado02
 // Dados de 8 bits
 
         ---------------------------------------
@@ -9,7 +9,7 @@
         MOV  A, M          ; A = dado01
         ADD  A             ; A = A + A  = 2*dado01
 
-        ; Resultado parcial está no A
+        ; Resultado parcial esta no A
 
         ---------------------------------------
         ; 2) Calcular 3 * dado02
@@ -23,13 +23,13 @@
                            ; Agora falta subtrair mais 1*dado02
 
         ; Mas queremos: A = 2*dado01 - 3*dado02
-        ; Então ajustamos invertendo a lógica:
+        ; Entao ajustamos invertendo a logica:
         ; Em vez de somar 3*dado02, vamos subtrair diretamente:
 
-        ; RESET da parte acima (substituir por subtração direta)
+        ; RESET da parte acima (substituir por subtraçao direta)
 
         ---------------------------------------
-        ; Versão correta: Subtrair 3 * dado02
+        ; Versao correta: Subtrair 3 * dado02
 
 
         ; Zera A e recomputa corretamente
@@ -55,7 +55,7 @@
 
 
 ---------------------------------------
-; Área de dados (exemplo)
+; area de dados (exemplo)
 
 dado01:   05h     ; exemplo: 5
 dado02:   02h     ; exemplo: 2
